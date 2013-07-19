@@ -1,0 +1,52 @@
+package consultorio.main;
+import consultorio.paciente.*;
+import consultorio.basededatos.*;
+
+ /**
+ * Clase Main el cual se utilizaran todas las clases creadas para el
+ * proyecto de Consultorio Médico
+ * @author marin
+ * @version 0.1
+ * @since 20/03/2013
+ */
+public class ConsultorioMedico {
+	/**
+	 * @param args
+         * */
+	public static void main(String[] args) {
+	// TODO Auto-generated method stub
+            Paciente paciente = new Paciente();//crea un objeto paciente
+            //Establece Valores para los atributos del paciente
+            paciente.setNombrePac("Miguel Marin");
+            paciente.setApellidoPac("Salinas Sanchez");
+            paciente.setSexoPac(true);//Si es true es masculino
+            paciente.setEstadoCivPac("Soltero");
+            paciente.setOcupacionPac("Estudiante");
+            paciente.setTelefono(83592311);
+            paciente.setCelular(811578015);
+            paciente.setEmail("msaliinas@hotmail.com");
+            paciente.setNacimiento(27, 01, 2000);
+            paciente.getAntPatPac();
+            paciente.setAntNoPatPac(null);
+            
+            //Imprime los Valores el Paciente
+            System.out.println("BIENVENIDO\t\t"
+                    +paciente.getNacimiento().obtenerFechaActual());
+            System.out.println();
+            System.out.println("Id: "+paciente.getIdPac());
+            System.out.println("Nombre: "+paciente.getNombrePac());
+            System.out.println("Apellido: "+paciente.getApellidoPac());
+            System.out.print("Sexo: ");
+            System.out.println(paciente.getSexoPac() ? "Hombre":"Mujer");
+            System.out.println("Estado Civil: "+paciente.getEstadoCivPac());
+            System.out.println("Ocupacion: "+paciente.getOcupacionPac());
+            System.out.println("Telefono: "+paciente.getTelefono());
+            System.out.println("Celular: "+paciente.getCelular());
+            System.out.println("Email: "+paciente.getCelular());
+            System.out.println("Nacimiento: "+paciente.getNacimiento().toString());
+            System.out.println("Edad: "+paciente.getNacimiento().obtenerEdad()+" años");
+            ConexionDB conectar = new ConexionDB();
+            conectar.conectarBD();
+        }
+
+}
